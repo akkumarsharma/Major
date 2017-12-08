@@ -1,0 +1,48 @@
+<div class="row" style="margin-top:50px;">
+    <table class="table table-bordered" *ngIf="ActivityDetailForTab.length>0 && ActivityDetailForTab !=undefined">
+        <thead>
+            <tr>
+                <th>ActivityName</th>
+                <th>ActivityDesc</th>
+                <th>ActivityStartDate</th>
+                <th>ActivityEndDate</th>
+                 <th *ngIf="!IsFromProjectSelected">Project</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of ActivityDetailForTab">
+                <td><span [ngClass]="CheckIfSubActivityExist(a.ActivityId)" (click)="openDialog(a.ActivityId)">
+                    {{a.ActivityName}}</span></td>
+                <td>{{a.ActivityDesc}}</td>
+                <td>{{a.ActivityStartDate}}</td>
+                <td>{{a.ActivityEndDate}}</td>
+                <td *ngIf="!IsFromProjectSelected">{{a.ProjectName}}</td>
+<!--
+                <td>
+                    <project-selected-activity-tab-subActivity [SubActivityDetailForTabIdSpecific]="SubActivityDetailForTabIdSpecific(a.ActivityId)"></project-selected-activity-tab-subActivity>
+                </td>-->
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row" class="activityHeader">
+                <div class="col-md-3" >ActivityName</div>
+                <div class="col-md-3" >ActivityDesc</div>
+                <div class="col-md-3">ActivityStartDate</div>
+                <div class="col-md-3">ActivityEndDate</div>
+            </div>
+        </div>
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+               <div class="row" *ngFor="let a of ActivityDetailForTab">
+                <div class="col-md-3"><span [ngClass]="CheckIfSubActivityExist(a.ActivityId)">{{a.ActivityName}}</span></div>
+                <div class="col-md-3">{{a.ActivityDesc}}</div>
+                <div class="col-md-3">{{a.ActivityStartDate}}</div>
+                <div class="col-md-3">{{a.ActivityEndDate}}</div>
+                <div class="col-md-12">
+                    <project-selected-activity-tab-subActivity [SubActivityDetailForTabIdSpecific]="SubActivityDetailForTabIdSpecific(a.ActivityId)"></project-selected-activity-tab-subActivity>
+                </div>
+            </div>
+           </div>  -->
+
+

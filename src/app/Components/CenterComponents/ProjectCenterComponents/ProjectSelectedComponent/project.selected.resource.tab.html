@@ -1,0 +1,26 @@
+<div class="row" style="margin-top:50px;" >
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ResourceId</th>
+              <th>ResourceName</th>
+              <th>ResourceSupervisor</th>
+              <th>ResourceDOJ</th>
+              <th>AllocationPercentage</th>
+              <th>StartDate</th>
+              <th>EndDate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let r of ResourceDetailForTab">
+              <td>{{r.ResourceId}}</td>
+              <td>{{r.ResourceName}}</td>
+              <td>{{r.ResourceSupervisor}}</td>
+              <td>{{r.ResourceDOJ}}</td>
+              <td>{{r.AllocationPercentage}}</td>
+              <td>{{r.StartDate}}</td>
+              <td>{{r.EndDate}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
