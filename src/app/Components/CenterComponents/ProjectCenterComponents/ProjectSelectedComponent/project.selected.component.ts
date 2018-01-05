@@ -20,6 +20,7 @@ import { ResourceProjectAllocationDetailModel } from '../../../../Models/Resourc
 import { Subscription } from 'rxjs/Subscription';
 import { serviceForRoute } from '../../../../Services/SharedServices.service'
 import { Tabs } from '../../../../Directives/Tabs/tabs'
+import { ProjectSelectedResourceTab } from './project.selected.resource.tab'
 @Component({
   selector: 'project-selected',
   templateUrl: './project.selected.component.html',
@@ -35,7 +36,8 @@ export class ProjectSelectedComponent implements OnInit {
     this.subscription = this.messageService.getcenterProjectSelectedMessage().subscribe(message => { this.Initalize(message) });
   }
   @Input() NewId;
-  @ViewChild(Tabs) private tabComponent: Tabs;
+  @ViewChild(Tabs) 
+  private tabComponent: Tabs;
   resourceModelCollection: ResourceModel[];
   activityModelCollection: NewProjectEventModel[]=[];
   subActivityModelCollection: SubActivityModel[];
@@ -60,6 +62,9 @@ export class ProjectSelectedComponent implements OnInit {
     this.activityModelCollection.length=0;
   }
   Load(): void {
+    // debugger
+    //   let resourceComponentTab=new ProjectSelectedResourceTab();
+    //   resourceComponentTab.Initalize();
     this.GetResources();
     this.GetResourcesAssigned();
     this.GetActivities();
@@ -107,6 +112,10 @@ export class ProjectSelectedComponent implements OnInit {
   FillSubActivitiesDetails(subActivities: SubActivityModel[]): void {
     this.subActivityModelCollection = subActivities;
   }
+
+  UpdateProjectAssignmentList(e):void{
+       this.GetResourcesAssigned();
+    }
 
   FillProjectResourceAssigned(projectResources: ResourceProjectAllocationDetailModel[]): void {
     let resourceModelToDisplayCollectionVariable:ResourceDetailsForDisplay[]=[];

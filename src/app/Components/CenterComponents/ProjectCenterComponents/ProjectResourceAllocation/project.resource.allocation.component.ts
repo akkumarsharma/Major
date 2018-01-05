@@ -154,7 +154,9 @@ export class ProjectResourceAllocationComponent implements OnInit {
     resourceProjectModelVariable(model: ResourceProjectAllocationDetailModel): void {
         this.isCurrentResourceAllocatedList.length = 0;
         if (this.resourceProjectAllocationDetailModelList.filter(a => a.ResourceId == model.ResourceId).length == 0) {
-              model.ProjectCode=this.NewId.replace(/"/g,'');
+              //model.ProjectCode=this.NewId.replace(/"/g,'');
+              //nodejs
+              model.ProjectCode=this.NewId;
               let actionName=ApiActionList.Post_Project_Resource_Assigned;
               this.appcommService.post(model,actionName).subscribe(
                     data => {
@@ -178,7 +180,9 @@ export class ProjectResourceAllocationComponent implements OnInit {
         }
         else if (this.resourceProjectAllocationDetailModelList != null &&
             this.resourceProjectAllocationDetailModelList.filter(a => a.ResourceId == model.ResourceId).length != 0) {
-            model.ProjectCode=this.NewId.replace(/"/g,'');
+            //model.ProjectCode=this.NewId.replace(/"/g,'');
+            //nodejs
+            model.ProjectCode=this.NewId;
               let actionName=ApiActionList.Update_Project_Resource_Assigned;
               this.appcommService.post(model,actionName).subscribe(
                     data => {

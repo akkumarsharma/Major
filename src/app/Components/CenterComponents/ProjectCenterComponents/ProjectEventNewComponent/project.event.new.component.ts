@@ -85,7 +85,9 @@ showDialog = false;
                     data => {
                         if (data.status==200) //Success
                         {   
-                           this.NewActivityId=data.text();
+                           //this.NewActivityId=data.text();
+                           //if data is coming from nodejs in JSON
+                           this.NewActivityId=JSON.parse(data.text()).ActivityId
                             this.showDialog = true;                
                         }
                         else

@@ -2,8 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'common-filter',
-  templateUrl: './common.filter.component.html'
-  //   styleUrls:['./left.component.css']
+  templateUrl: './common.filter.component.html',
+     styleUrls:['./common.filter.component.css']
 })
 export class CommonFilterComponent {
   @Input() SearchCriteria: any;

@@ -70,7 +70,9 @@ export class ProjectNewComponent implements OnInit {
                     data => {
                         if (data.status==200) //Success
                         {  
-                           this.NewProjectCode=data.text();
+                           //this.NewProjectCode=data.text();
+                           //nodejs
+                           this.NewProjectCode=JSON.parse(data.text()).ProjectCode;
                             this.showDialog = true;
                             this.sharedService.updateProjectsList(true);
                         

@@ -18,9 +18,10 @@
        <project-selected-projectdtl-tab [ProjectDetailForTab]="projectDetailModel"></project-selected-projectdtl-tab>
     </tab>
     <tab tabTitle="Resource Details">
-      <span *ngIf="resourceModelToDisplayCollection.length==0">No Records Found</span>
-      <project-selected-resource-tab *ngIf="resourceModelToDisplayCollection.length>0" 
-      [ResourceDetailForTab]="resourceModelToDisplayCollection"></project-selected-resource-tab>
+      <project-selected-resource-tab 
+      [ResourceDetailForTab]="resourceModelToDisplayCollection"
+      [ProjectCode]="NewId"
+      (UpdateProjectAssignmentList)="UpdateProjectAssignmentList($event)"></project-selected-resource-tab>
     </tab>
     <tab tabTitle="Activity Details">
        <span *ngIf="activityModelCollection.length==0">No Records Found</span>

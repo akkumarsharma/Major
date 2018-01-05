@@ -23,6 +23,7 @@ import { ResourceProjectDetail } from './Components/CenterComponents/ResourceCen
 import { ProjectSelectedComponent } from './Components/CenterComponents/ProjectCenterComponents/ProjectSelectedComponent/project.selected.component';
 import { ProjectEventNewComponent } from './Components/CenterComponents/ProjectCenterComponents/ProjectEventNewComponent/project.event.new.component';
 import { ControlMessages } from './Directives/control.message'
+import { ControlMessagesForm } from './Directives/control.messages.form'
 import { Tabs } from './Directives/Tabs/tabs'
 import { Tab } from './Directives/Tabs/tab'
 import { ProjectSelectedActivityTab } from './Components/CenterComponents/ProjectCenterComponents/ProjectSelectedComponent/project.selected.activity.tab';
@@ -56,12 +57,15 @@ import { LoaderService } from './Components/Loader/loader.service';
 import { SubActivityCreationComponent } from './Components/CenterComponents/ProjectCenterComponents/SubActivityCreation/sub.activity.creation.component'
 import { SubActivityFormComponent } from './Components/CenterComponents/ProjectCenterComponents/SubActivityCreation/sub.activity.form.component'
 import {CommonFilterComponent} from './Components/CommonComps/common.filter.component'
+import {LoginComponent} from './Components/LoginComponent/login.component'
 import { ResourceNewComponent } from './Components/CenterComponents/ResourceCenterComponents/resource.new.component';
 import { HttpCache } from './CommonClasses/http.cache';
 //  import { DateTimePickerModule } from 'ng-pick-datetime';
 import {HttpClientModule} from '@angular/common/http';
 import { CachingInterceptor } from './Interceptor/caching.interceptor ';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {ProjectSelectedResourceAllocation} from './Components/CenterComponents/ProjectCenterComponents/ProjectSelectedComponent/ProjectSelectedResourceAllocation/project.selected.resource.allocation'
+import {ProjectSelectedResourceExtraWindow} from './Components/CenterComponents/ProjectCenterComponents/ProjectSelectedComponent/ProjectSelectedResourceAllocation/project.selected.resource.extra.window'
 @NgModule({
 
   imports: [
@@ -88,10 +92,11 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
   ],
 
   declarations: [AppComponent,TopComponent,LeftComponent,CenterComponent,ProjectComponent,ResourceComponent,ProjectNewComponent, CreateprojectsComponent,
-  ProjectSelectedComponent,ProjectEventNewComponent,ControlMessages,DialogOnsubmitProjectdetailsComponent,ProjectResourceAllocationComponent,ProjectResourceIndividualAllocation,
+  ProjectSelectedComponent,ProjectEventNewComponent,ControlMessages,ControlMessagesForm,DialogOnsubmitProjectdetailsComponent,ProjectResourceAllocationComponent,ProjectResourceIndividualAllocation,
   BreadcrumbComponent,Tabs, Tab,SubActivityCreationComponent,SubActivityFormComponent,ResourceNewComponent,
   LoaderComponent,ProjectSelectedActivityTab,ProjectSelectedProjectdtlTab,ProjectSelectedResourceTab,ProjectSelectedActivityTabSubActivity,ActivityComponent,
-  ActivityNewIndependentComponent,ActivitySummaryComponent,ResourceSummaryComponent,ResourceProjectDetail,CommonFilterComponent,LoaderUnresponsive],
+  ActivityNewIndependentComponent,ActivitySummaryComponent,ResourceSummaryComponent,ResourceProjectDetail,CommonFilterComponent,LoaderUnresponsive,ProjectSelectedResourceAllocation,
+  ProjectSelectedResourceExtraWindow,LoginComponent],
   bootstrap: [AppComponent,ProjectSelectedActivityTabSubActivity,ResourceProjectDetail],
   providers: [serviceForRoute,DatePipe,ApiCommunicationService,LoaderService,HttpCache,
   {
@@ -102,7 +107,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 })
 export class AppModule {}
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+//platformBrowserDynamic().bootstrapModule(AppModule);
 
 
 /**  Copyright 2017 Google Inc. All Rights Reserved.

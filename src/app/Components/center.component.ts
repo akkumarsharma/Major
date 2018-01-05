@@ -92,7 +92,8 @@ export class CenterComponent implements OnDestroy {
                     break;
                 case CenterIdentifier.newProjectResourceCreation:
                     this.NewId = obj.Id;
-                    this.NewId = this.NewId.replace(/"/g, '');
+                    //nodejs
+                    //this.NewId = this.NewId.replace(/"/g, '');
                     let actionName_project_list = ApiActionList.Get_Project_List;
                     this.appcommService.getAll(actionName_project_list, false)
                         .subscribe(projects => {
@@ -104,7 +105,8 @@ export class CenterComponent implements OnDestroy {
                     break;
                 case CenterIdentifier.subActivityCreation:
                     this.NewId = obj.Id;
-                    this.NewId = this.NewId.replace(/"/g, '');
+                    //nodejs
+                    //this.NewId = this.NewId.replace(/"/g, '');
                     let actionName_Get_Activity_List = ApiActionList.Get_Activity_List;
                     this.appcommService.getAll(actionName_Get_Activity_List, false)
                         .subscribe(activities => {

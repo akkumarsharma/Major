@@ -8,8 +8,16 @@
     </div>
     <div class="form-group">
         <div class="col-md-6 col-md-offset-1">
-            <input type="text" class="form-control" id="" placeholder="Resource supervisor" formControlName="ResourceSupervisor">
-            <control-messages [control]="resourceNewForm.controls.ResourceSupervisor"></control-messages>
+            <!--<input type="text" class="form-control" id="" placeholder="Resource supervisor" formControlName="ResourceSupervisor">
+            <control-messages [control]="resourceNewForm.controls.ResourceSupervisor"></control-messages>-->
+         <mat-input-container>
+        <input matInput placeholder="Resource supervisor" [matAutocomplete]="auto" [formControl]="supervisorCtrl" [(ngModel)]="ResourceSupervisor">
+      </mat-input-container>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let supervisor of filteredSupervisors | async" [value]="supervisor">
+          {{ supervisor }}
+        </mat-option>
+      </mat-autocomplete>
         </div>
     </div>
     <div class="form-group">

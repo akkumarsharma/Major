@@ -81,7 +81,6 @@ export class ResourceSummaryComponent implements OnInit {
     }
 
     CheckIfProjectExist(resourceId:string){
-        debugger
          if (this.resourceProjectAssignment != undefined && this.resourceProjectAssignment.length > 0) {
             if (this.resourceProjectAssignment.filter(a => a.ResourceId == resourceId).length >= 1) {
                 return 'link';

@@ -5,7 +5,8 @@
 <div class="container-fluid" style="margin-bottom:100px;">
     <div lass="row">
         <div class="col-md-10" *ngIf="IsHomePage">
-            <img src="../assets/Images/project-management-graphic.jpg" style="height: 100%;width:100%">
+            <!--<img src="../assets/Images/project-management-graphic.jpg" style="height: 100%;width:100%">-->
+             <img src="assets/Images/project-management-graphic.jpg" style="height: 100%;width:100%">
         </div>
     </div>
     <div class="row" style="margin-bottom:30px;" *ngIf="!IsHomePage">
@@ -38,7 +39,8 @@
             <resource-summary *ngIf="IsResourceSummary"></resource-summary>
         </div>
         <div class="col-md-2">
-            <img src="../../assets/Images/gototop.png" *ngIf="IsGotoTop" value="Top" (click)="GotoTop()" style="position:fixed;width:100px;cursor:pointer;">
+            <!--<img src="../../assets/Images/gototop.png" *ngIf="IsGotoTop" value="Top" (click)="GotoTop()" style="position:fixed;width:100px;cursor:pointer;">-->
+             <img src="assets/Images/gototop.png" *ngIf="IsGotoTop" value="Top" (click)="GotoTop()" style="position:fixed;width:100px;cursor:pointer;">
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" [hidden]="!isShowSubActivityForm">
             <sub-activity-form (cancelSubActivityCreation)="cancelSubActivityCreation()" (subActivityModelToAdd)="subActivityModelToAdd($event)"
-            [NewId]="NewId"></sub-activity-form>
+            [NewId]="NewId" (IsEditModeUpdate)="IsEditModeUpdate($event)"></sub-activity-form>
         </div>
 
 
@@ -49,8 +49,10 @@
                             {{r.SubActivityEndDate}}
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="float:right;padding:0;">
-                            <img src="../../../../assets/Images/edit-icon-15.png" style="height: 20px;">
-                            <img src="../../../../assets/Images/delete_icon.png" style="height: 20px;">
+                            <img (click)="editSubActivityItem(r)" src="assets/Images/edit-icon-15.png" style="height: 20px;cursor: pointer;">
+                            <img (click)="deleteSubActivityItem(r.SubActivityId)" src="assets/Images/delete_icon.png" style="height: 20px;cursor: pointer;">
+                            <!--<img (click)="editSubActivityItem(r)" src="../../../../assets/Images/edit-icon-15.png" style="height: 20px;cursor: pointer;">
+                            <img (click)="deleteSubActivityItem(r.SubActivityId)" src="../../../../assets/Images/delete_icon.png" style="height: 20px;cursor: pointer;">-->
                         </div>
                     </div>
                 </div>
