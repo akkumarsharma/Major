@@ -10,8 +10,10 @@ export class serviceForRoute {
     private centerUpdate = new Subject<CenterComm>();
     private updateResources = new Subject<boolean>();
     private updateProjects = new Subject<boolean>();
-    private centerProjectSelected=new Subject<string>();
+    private centerProjectSelected = new Subject<string>();
+    private IsUserAuthenticated = new Subject<boolean>();
     IsFromCache: boolean = false;
+    token: string;
     updateResourcesList(val: boolean) {
         this.updateResources.next(val);
     }
@@ -30,13 +32,12 @@ export class serviceForRoute {
 
     sendMessage(obj: CenterComm) {
         this.centerUpdate.next(obj);
-        if(obj.CommType==CenterIdentifier.selectProject)
-        {
+        if (obj.CommType == CenterIdentifier.selectProject) {
             this.centerProjectSelected.next(obj.Id);
         }
     }
-    
-     makeid() {
+
+    makeid() {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -54,7 +55,17 @@ export class serviceForRoute {
         return this.centerUpdate.asObservable();
     }
 
-    getcenterProjectSelectedMessage(){
+    //
+    setIfAuthenticateUser(val: boolean) {
+        this.IsUserAuthenticated.next(val);
+    }
+
+    checkIfAuthenticateUser(): Observable<boolean> {
+        return this.IsUserAuthenticated.asObservable();
+    }
+    //
+
+    getcenterProjectSelectedMessage() {
         return this.centerProjectSelected.asObservable();
     }
 
@@ -64,4 +75,31 @@ export class serviceForRoute {
     checkIfCacheRequired(): boolean {
         return this.IsFromCache;
     }
+
+
+    saveToken = function (token) {
+        window.localStorage["token_id"] = token
+        this.isLoggedIn();
+
+    };
+
+    getToken = function () {
+        return window.localStorage["token_id"];
+    };
+
+
+    isLoggedIn = function () {
+        var token = this.getToken();
+        var payload;
+
+        if (token) {
+            payload = token.split('.')[1];
+            payload = window.atob(payload);
+            payload = JSON.parse(payload);
+
+            return payload.exp > Date.now() / 1000;
+        } else {
+            return false;
+        }
+    };
 }
